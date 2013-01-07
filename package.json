@@ -1,0 +1,23 @@
+{
+  "name": "deployer",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "routes": "~0.1.1",
+    "st": "~0.1.1",
+    "stylus": "~0.32.0",
+    "templar": "~0.1.2",
+    "ejs": "~0.8.3",
+    "error-page": "0.0.6",
+    "cookies": "~0.3.6",
+    "bunyan": "~0.17.0"
+  }
+}

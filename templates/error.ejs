@@ -1,0 +1,21 @@
+<h1><%= title %></h1>
+
+<p>An error occurred.</p>
+
+<h2>Additional Debug Information</h2>
+
+<pre><%= locals.stack %>
+
+headers = <%= JSON.stringify(locals.headers, null, 2) %>
+
+error = <%= JSON.stringify(error,function(k,v) {
+              if (k.match(/^domain/) && typeof v === 'object')
+                return '[object ' + v.constructor.name + ']'
+              return v
+            },2) %>
+
+statusCode = <%= statusCode %>
+
+stamp = <%= stamp %>
+</pre>
+
