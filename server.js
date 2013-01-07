@@ -4,16 +4,19 @@ var path = require("path");
 
 // npm packages
 var url = require("url");
+var app = http.createServer(handler);
+var io = require('socket.io').listen(app);
 
 // my modules
 var router = require("./router.js");
 var config = require("./config.js");
 var decorate = require('./decorate.js')
-
 var webSitePort = config.httpPort;
 
+app.listen(webSitePort);
+
 // request goes here
-http.createServer(function(req, res) {
+function handler(req, res) {
   decorate(req, res, config)
 
   var parsed = url.parse(req.url)
@@ -38,7 +41,13 @@ http.createServer(function(req, res) {
   })
 
   route.fn(req, res)
+};
 
-}).listen(webSitePort);
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});
 
 console.log('website running. port ' + webSitePort);
