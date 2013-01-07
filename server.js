@@ -12,6 +12,7 @@ var router = require("./router.js");
 var config = require("./config.js");
 var decorate = require('./decorate.js')
 var webSitePort = config.httpPort;
+var deploy = require('./deploy.js');
 
 app.listen(webSitePort);
 
@@ -44,10 +45,13 @@ function handler(req, res) {
 };
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+
+  socket.on('deploy', function (data) {
+    console.log('deploying', data);
+    socket.emit('progress', { msg: 'start deploying to ' + data.host });
+    deploy(data, socket);
   });
+
 });
 
 console.log('website running. port ' + webSitePort);

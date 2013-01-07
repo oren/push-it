@@ -1,9 +1,16 @@
 $(function () {
 
   var socket = io.connect('http://localhost:3000');
-  socket.on('news', function (data) {
+  socket.on('progress', function (data) {
     console.log(data);
-    socket.emit('my other event', { my: 'data' });
+  });
+
+  $('.dev1').click(function() {
+    socket.emit('deploy', { project: 'push', host: 'dev1' });
+  });
+
+  $('.dev2').click(function() {
+    socket.emit('deploy', { project: 'push', host: 'dev2' });
   });
 
 });
