@@ -4,12 +4,56 @@ button {
   /* height: 60px; */
 }
 
-img {
-  max-width: 13%;
-}
 
 .content {
-  width: 1024px ;
-  margin-left: auto ;
-  margin-right: auto ;
+  /* width: 1024px ; */
+  /* margin-left: auto ; */
+  /* margin-right: auto ; */
+}
+
+.title {
+  font-size: 30px;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+  .header img {
+    max-width: 50%;
+  }
+
+#hero {
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 76%;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+#site-content-body {
+  margin-top: 30px;
+  width: 76%;
+}
+.container {
+  margin: 0 auto;
+}
+
+.caption {
+  margin-top: 20px;
+}
+
+  .caption p {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  .caption select {
+    margin-top: 7px;
+  }
+
+.console {
+  background-color: black;
+  color: #eee;
 }
