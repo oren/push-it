@@ -1,8 +1,12 @@
 $(function () {
 
   var socket = io.connect('http://localhost:3000');
-  socket.on('progress', function (data) {
 
+  socket.on('start', function (data) {
+    $('.console').append('<div><b>' + data.msg + '</b></div><br />');
+  });
+
+  socket.on('progress', function (data) {
     if (data.type === 'stderr') {
       $('.console').append('<div class="red">' + data.msg + '</div>');
     } else {

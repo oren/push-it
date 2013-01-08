@@ -48,7 +48,7 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('deploy', function (data) {
     console.log('deploying', data);
-    socket.emit('progress', { msg: 'start deploying to ' + data.host });
+    socket.emit('start', { msg: 'Deploying to ' + data.host });
     deploy(data, socket);
   });
 
