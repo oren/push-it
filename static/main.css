@@ -1,15 +1,3 @@
-button {
-  /* padding-left: 10px; padding-right: 10px; */
-  /* width: 100px; */
-  /* height: 60px; */
-}
-
-
-.content {
-  /* width: 1024px ; */
-  /* margin-left: auto ; */
-  /* margin-right: auto ; */
-}
 
 .title {
   font-size: 30px;
@@ -23,14 +11,14 @@ button {
     max-width: 50%;
   }
 
-#hero {
-  border-radius: 5px;
-  margin: 0 auto;
-  width: 76%;
-  background: #fff;
-  overflow: hidden;
-  position: relative;
-}
+/* #hero { */
+/*   border-radius: 5px; */
+/*   margin: 0 auto; */
+/*   width: 76%; */
+/*   background: #fff; */
+/*   overflow: hidden; */
+/*   position: relative; */
+/* } */
 
 #site-content-body {
   margin-top: 30px;
@@ -54,6 +42,20 @@ button {
   }
 
 .console {
-  background-color: black;
-  color: #eee;
+  padding: 10px;
+  /* background-color: black; */
+  /* color: #eee; */
+}
+
+.console textarea {
+  width: 600px;
+  height: 20px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }
