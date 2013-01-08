@@ -12,6 +12,14 @@
     max-width: 50%;
   }
 
+.project label {
+  margin-right: 10px;
+}
+
+.project a {
+  margin-left: 10px;
+}
+
 /* #hero { */
 /*   border-radius: 5px; */
 /*   margin: 0 auto; */
@@ -23,7 +31,7 @@
 
 #site-content-body {
   margin-top: 30px;
-  width: 76%;
+  width: 98%;
 }
 .container {
   margin: 0 auto;
@@ -45,6 +53,7 @@
 
 .console {
   padding: 10px;
+  background-color: #EEFCFF;
   /* background-color: black; */
   /* color: #eee; */
 }

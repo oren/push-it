@@ -13,6 +13,7 @@ var config = require("./config.js");
 var decorate = require('./decorate.js')
 var webSitePort = config.httpPort;
 var deploy = require('./deploy.js');
+var run = require('./run.js');
 
 app.listen(webSitePort);
 
@@ -50,6 +51,12 @@ io.sockets.on('connection', function (socket) {
     console.log('deploying', data);
     socket.emit('start', { msg: 'Deploying to ' + data.host });
     deploy(data, socket);
+  });
+
+  socket.on('run', function (data) {
+    console.log('running', data);
+    // socket.emit('start', { msg: 'Deploying to ' + data.host });
+    run(data, socket);
   });
 
 });
