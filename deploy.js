@@ -1,20 +1,33 @@
 module.exports = deploy;
 
 function deploy(data, socket) {
+  var spawn = require('child_process').spawn;
 
-  var exec = require('child_process').exec;
-  var child;
+  function pushIt() {
+    var deploy = spawn('deploy', ['--chdir', '/Users/ogolan/projects/push', data.host]);
 
-  function pushIt(error, stdout, stderr) {
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
-    if (error !== null) {
-      console.log('exec error: ' + error);
-    }
+    deploy.stdout.on('data', function (data) {
+      console.log('deploy stdout: ' + data);
+      socket.emit('progress', { msg: 'sdtout:' + data });
+    });
+
+    deploy.stderr.on('data', function (data) {
+      console.log('deploy stderr: ' + data);
+      socket.emit('progress', { msg: 'stderr: ' + data });
+    });
+
+    deploy.on('exit', function (code) {
+      console.log('deploy process exited with code ' + code);
+      socket.emit('progress', { msg: 'deploy processs was exit with code ' + code });
+    });
   };
 
-  child = exec('cd /Users/ogolan/projects/push && deploy ' + data.host, pushIt);
-
-  socket.emit('progress', { msg: 'completed deployment to ' + data.host });
-
+  pushIt();
 };
+
+// potential errors:
+// deploy stderr: execvp(): No such file or directory
+//
+// run mongroup
+// cd /Users/ogolan/projects/push
+// push : 28413 : alive : uptime 5 hours
